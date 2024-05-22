@@ -13,7 +13,7 @@ jobs:
   gh-pages:
     defaults:
       run:
-        working-directory: ./frontend/rocket-meals-dev
+        working-directory: ./app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
