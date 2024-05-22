@@ -1,0 +1,31 @@
+name: GH-Pages Publish
+on:
+  push:
+    branches:
+      - master
+      - web
+    paths:
+      - 'app/**'
+      - ".github/workflows/frontend_web_ghpages.yml"
+      
+jobs:
+  gh-pages:
+    defaults:
+      run:
+        working-directory: ./frontend/rocket-meals-dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.19.1'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: git config --global user.name 'Rocket Meals'
+      - run: git config --global user.email 'nils@baumgartner-software.de'
+      #https://www.npmjs.com/package/gh-pages
+      - run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          CI=false npm run deploy:gh:pages -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any

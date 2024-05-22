@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "expo-github-pages-dynamic-route-error",
+    "slug": "expo-github-pages-dynamic-route-error",
+    "version": "0.9.1",
+    "orientation": "default",
+    "icon": "./assets/images/icon.png",
+    "notification": {
+      "icon": "./assets/images/notification-icon.png"
+    },
+    "scheme": "expo-github-pages-dynamic-route-error",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-build-properties",
+      "expo-localization",
+      "expo-asset",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/expo-github-pages-dynamic-route-error"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+    },
+    "owner": "baumgartner-software",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
+  }
+}
